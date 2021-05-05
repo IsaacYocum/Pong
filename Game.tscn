@@ -1,0 +1,98 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://paddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://p2_paddle.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GUI" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GUI"]
+margin_right = 1024.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Player1Gui" type="HBoxContainer" parent="MarginContainer/GUI/HBoxContainer"]
+margin_right = 55.0
+margin_bottom = 20.0
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/GUI/HBoxContainer/Player1Gui"]
+margin_top = 3.0
+margin_right = 43.0
+margin_bottom = 17.0
+text = "Score: "
+
+[node name="ScoreText" type="Label" parent="MarginContainer/GUI/HBoxContainer/Player1Gui"]
+margin_left = 47.0
+margin_top = 3.0
+margin_right = 55.0
+margin_bottom = 17.0
+text = "0"
+
+[node name="Control2" type="Control" parent="MarginContainer/GUI/HBoxContainer"]
+margin_left = 59.0
+margin_right = 484.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GUI/HBoxContainer"]
+margin_left = 488.0
+margin_right = 536.0
+margin_bottom = 20.0
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/GUI/HBoxContainer/VBoxContainer"]
+margin_right = 48.0
+margin_bottom = 20.0
+text = "Reset"
+
+[node name="Control3" type="Control" parent="MarginContainer/GUI/HBoxContainer"]
+margin_left = 540.0
+margin_right = 965.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Player2Gui" type="HBoxContainer" parent="MarginContainer/GUI/HBoxContainer"]
+margin_left = 969.0
+margin_right = 1024.0
+margin_bottom = 20.0
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/GUI/HBoxContainer/Player2Gui"]
+margin_top = 3.0
+margin_right = 43.0
+margin_bottom = 17.0
+text = "Score: "
+
+[node name="Label2" type="Label" parent="MarginContainer/GUI/HBoxContainer/Player2Gui"]
+margin_left = 47.0
+margin_top = 3.0
+margin_right = 55.0
+margin_bottom = 17.0
+text = "0"
+
+[node name="Board" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="Player1Paddle" parent="MarginContainer/Board" instance=ExtResource( 1 )]
+position = Vector2( 50, 260 )
+
+[node name="Player2Paddle" parent="MarginContainer/Board" instance=ExtResource( 1 )]
+position = Vector2( 974, 260 )
+script = ExtResource( 3 )
+
+[node name="ball" parent="MarginContainer/Board" instance=ExtResource( 2 )]
