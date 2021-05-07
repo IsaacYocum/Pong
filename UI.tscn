@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="UI" type="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UIBackground" type="ColorRect" parent="."]
+material = SubResource( 2 )
+margin_right = 1024.0
+margin_bottom = 40.0
+color = Color( 0.117647, 0.156863, 0.258824, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 40.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 1014.0
+margin_bottom = 30.0
+
+[node name="P1ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 3.0
+margin_right = 43.0
+margin_bottom = 17.0
+text = "Score: "
+
+[node name="P1Score" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_left = 47.0
+margin_top = 3.0
+margin_right = 55.0
+margin_bottom = 17.0
+text = "0"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_left = 59.0
+margin_right = 474.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="ResetGame" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_left = 478.0
+margin_right = 526.0
+margin_bottom = 20.0
+text = "Reset"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_left = 530.0
+margin_right = 945.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="P2ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_left = 949.0
+margin_top = 3.0
+margin_right = 992.0
+margin_bottom = 17.0
+text = "Score: "
+
+[node name="P2Score" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_left = 996.0
+margin_top = 3.0
+margin_right = 1004.0
+margin_bottom = 17.0
+text = "0"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/ResetGame" to="." method="_on_ResetGame_button_up"]

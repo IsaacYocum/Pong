@@ -6,14 +6,16 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.7822
 
-[node name="Node2D" type="KinematicBody2D"]
+[node name="Node2D" type="Node2D"]
+position = Vector2( 13.773, 54.0327 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 500.067, 254.271 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 3.05176e-05, 0 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 500.067, 254.271 )
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )

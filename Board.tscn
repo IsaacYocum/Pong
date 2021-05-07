@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Board.gd" type="Script" id=1]
+[ext_resource path="res://p2_paddle.gd" type="Script" id=2]
+[ext_resource path="res://paddle.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 288 )
+
+[node name="Board" type="MarginContainer"]
+margin_top = 44.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 556.0
+color = Color( 0.313726, 0.145098, 0.145098, 1 )
+
+[node name="Player1Paddle" parent="." instance=ExtResource( 4 )]
+position = Vector2( 51.0595, 260 )
+
+[node name="Player2Paddle2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 975.059, 260 )
+script = ExtResource( 2 )
+
+[node name="topBorder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="topBorder"]
+position = Vector2( 512, -4 )
+shape = SubResource( 1 )
+
+[node name="bottomBorder" type="StaticBody2D" parent="."]
+position = Vector2( 0, 564 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bottomBorder"]
+position = Vector2( 512, -4 )
+shape = SubResource( 1 )
+
+[node name="leftGoal" type="StaticBody2D" parent="."]
+position = Vector2( 0, 124 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="leftGoal"]
+position = Vector2( -8, 152 )
+shape = SubResource( 2 )
+
+[node name="rightGoal" type="StaticBody2D" parent="."]
+position = Vector2( 0, 124 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rightGoal"]
+position = Vector2( 1032, 152 )
+shape = SubResource( 2 )
