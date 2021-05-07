@@ -26,4 +26,3 @@ func awardPoints(player):
 		player2Points += 10
 		player2Score.text = str(player2Points)
 	pass
-	
